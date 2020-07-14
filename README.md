@@ -1,2 +1,2 @@
-# IDCGMC
-Inductive Deep Collective Graph Matrix Completion
+# IGCMF
+Inductive Graph Collective Matrix Factorization
