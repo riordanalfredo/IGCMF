@@ -1,6 +1,9 @@
 {
-    "python.pythonPath": "/Users/rdalf2/opt/anaconda3/envs/igmc/bin/python",
+    "python.pythonPath": "C:\\Users\\Alfredo\\Anaconda3\\envs\\igcmf\\python.exe",
     "python.linting.pylintArgs": [
+        "--disable=C0111",
         "--generated-members=numpy.* ,torch.*"
-        ]
+    ],
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true
 }
