@@ -180,8 +180,10 @@ def links2subgraphs(A,
                         ))
                     pbar.update(1)
         else:
+            # timing - start
             start = time.time()
             pool = mp.Pool(mp.cpu_count())
+            # asynchronous pooling for training
             results = pool.starmap_async(
                 parallel_worker, 
                 [
@@ -202,14 +204,19 @@ def links2subgraphs(A,
             pbar.close()
             end = time.time()
             print("Time eplased for subgraph extraction: {}s".format(end-start))
+            # timing - end
+
+            # == time loader for transformation
+            # timing - start
             print("Transforming to pytorch_geometric graphs...".format(end-start))
             g_list += [
                 nx_to_PyGGraph(g, g_label, n_labels, n_features, max_node_label, class_values) 
                 for g_label, g, n_labels, n_features in tqdm(results)
             ]
-            del results
-            end2 = time.time()
+            del results 
+            end2 = time.time() 
             print("Time eplased for transforming to pytorch_geometric graphs: {}s".format(end2-end))
+            # timing - end
         return g_list
 
     print('Enclosing subgraph extraction begins...')
