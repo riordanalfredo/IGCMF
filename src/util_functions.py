@@ -220,7 +220,7 @@ def links2subgraphs(A,
         return g_list
 
     print('Enclosing subgraph extraction begins...')
-    train_graphs = helper(A, train_indices, train_labels)
+    train_graphs = helper(A, train_indices, train_labels) # need to find train_indices and train_labels
     if not testing:
         val_graphs = helper(A, val_indices, val_labels)
     else:
